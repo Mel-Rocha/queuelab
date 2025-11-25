@@ -58,7 +58,7 @@ Python 3.10
 Caso pretenda configurar o comportamento do projeto por variáveis de ambiente, utilize o arquivo `env.example` como ponto de partida. Ele contém todas as variáveis reconhecidas pelo sistema e seus valores padrão (quando aplicável).
 
 ```bash
-cp env.example .env
+cp .env.example .env
 ```
 
 ---
