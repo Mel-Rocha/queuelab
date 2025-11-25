@@ -1,3 +1,12 @@
+"""
+Demonstrações básicas para estruturas de filas.
+
+Este módulo contém uma função utilitária usada para executar uma
+demonstração genérica de qualquer implementação de fila compatível
+(com métodos como enqueue, dequeue, peek, size e is_empty).
+A demo exibe operações comuns e registra o comportamento via logging.
+"""
+
 import logging
 
 from instrumentation.logging_config import configure_logging
@@ -5,6 +14,17 @@ from fifo.exceptions import QueueEmptyError
 
 
 def run_queue_demo(queue):
+    """
+    Executa uma demonstração simples utilizando uma instância de fila.
+
+    A função realiza operações básicas como enfileirar, desenfileirar,
+    espiar o próximo elemento e testar o comportamento ao tentar remover
+    itens de uma fila vazia. Todas as ações são registradas via logging.
+
+    :param queue: Instância de uma fila que implementa os métodos padrão
+                  (enqueue, dequeue, peek, size, is_empty).
+    :return: None
+    """
     configure_logging()
     logger = logging.getLogger(__name__)
 
