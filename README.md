@@ -1,4 +1,4 @@
-## 🎯 Objetivo do Projeto
+# 🎯 Objetivo do Projeto
 
 Repositório de estudos, destinado a entender e comparar diferentes **estruturas de filas em Python**.
 
@@ -38,10 +38,24 @@ Para cada estrutura implementada, o projeto oferece:
 O projeto serve como base sólida para dominar filas, experimentar melhorias e construir conhecimento que será útil quando a transição para sistemas de filas distribuídas (como Redis, Celery ou RabbitMQ) acontecer naturalmente.
 
 ---
+# Requisitos
+Python 3.10
 
-# Utilização do projeto
+---
 
-- (Opcional) Copie o template de variáveis de ambiente, e preencha o mesmo.
+# Variáveis de Ambiente
+
+## Variáveis
+
+| Variável             | Tipo | Valores aceitos                                   | Padrão | Descrição |
+| ---                  | ---  | ---                                               | ---    | --- |
+| `QUEUELAB_LOG_LEVEL` | str  | `DEBUG`, `INFO`, `WARNING`, `ERROR`, `CRITICAL`   | `INFO` | Controla o nível de detalhamento dos logs durante demos e benchmarks. |
+
+
+
+## Comandos utéis
+
+Caso pretenda configurar o comportamento do projeto por variáveis de ambiente, utilize o arquivo `env.example` como ponto de partida. Ele contém todas as variáveis reconhecidas pelo sistema e seus valores padrão (quando aplicável).
 
 ```bash
 cp env.example .env
