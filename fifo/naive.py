@@ -1,7 +1,8 @@
-from fifo.exceptions import QueueEmptyError
+from domain.base_queue import BaseQueue
+from domain.exceptions import QueueEmptyError
 
 
-class FIFOQueueNaive:
+class FIFOQueueNaive(BaseQueue):
     """
     Fila simples implementada com lista.
 
