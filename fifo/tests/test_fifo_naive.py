@@ -1,7 +1,7 @@
 import unittest
 
+from domain.exceptions import QueueEmptyError
 from fifo.naive import FIFOQueueNaive
-from fifo.exceptions import QueueEmptyError
 
 
 class TestFIFOQueueNaive(unittest.TestCase):

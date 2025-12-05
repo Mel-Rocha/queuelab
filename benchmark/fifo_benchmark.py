@@ -5,9 +5,8 @@ Este módulo configura o sistema de logging e executa benchmarks para
 as implementações específicas de filas, permitindo a
 comparação direta de performance entre elas.
 """
-
+from benchmark.base_benchmarks import QueueBenchmark
 from instrumentation.logging_config import configure_logging
-from instrumentation.benchmark import QueueBenchmark
 from fifo.naive import FIFOQueueNaive
 from fifo.optimized import FIFOQueueOptimized
 

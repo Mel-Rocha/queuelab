@@ -9,8 +9,8 @@ de performance entre diferentes estruturas de fila.
 
 import logging
 
+from domain.interfaces import QueueProtocol
 from instrumentation.monitor import PerformanceMonitor
-from instrumentation.interfaces import QueueProtocol
 
 logger = logging.getLogger(__name__)
 

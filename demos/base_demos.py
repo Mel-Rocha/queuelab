@@ -9,8 +9,8 @@ A demo exibe operações comuns e registra o comportamento via logging.
 
 import logging
 
+from domain.exceptions import QueueEmptyError
 from instrumentation.logging_config import configure_logging
-from fifo.exceptions import QueueEmptyError
 
 
 def run_queue_demo(queue):
