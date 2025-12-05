@@ -1,7 +1,7 @@
 import unittest
 
+from domain.exceptions import QueueEmptyError
 from fifo.optimized import FIFOQueueOptimized
-from fifo.exceptions import QueueEmptyError
 
 
 class TestFIFOQueueOptimized(unittest.TestCase):

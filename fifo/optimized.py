@@ -1,9 +1,10 @@
 from collections import deque
 
-from fifo.exceptions import QueueEmptyError
+from domain.base_queue import BaseQueue
+from domain.exceptions import QueueEmptyError
 
 
-class FIFOQueueOptimized:
+class FIFOQueueOptimized(BaseQueue):
     """
     Implementação otimizada de uma fila FIFO usando collections.deque.
 
