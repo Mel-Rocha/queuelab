@@ -5,7 +5,7 @@ class BaseQueue(ABC):
     """Contrato base para estruturas de fila (FIFO, Circular, Priority)."""
 
     @abstractmethod
-    def enqueue(self, item):
+    def enqueue(self, *args, **kwargs):
         """Adiciona um elemento à coleção da fila."""
         # Não especificamos 'final'
         pass
