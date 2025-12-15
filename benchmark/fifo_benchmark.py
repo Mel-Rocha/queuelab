@@ -10,6 +10,9 @@ from instrumentation.logging_config import configure_logging
 from fifo.naive import FIFOQueueNaive
 from fifo.optimized import FIFOQueueOptimized
 
+def simple_enqueue(queue, i):
+    queue.enqueue(i)
+
 
 def main():
     """
@@ -22,10 +25,10 @@ def main():
     """
     configure_logging()
 
-    bench_naive = QueueBenchmark(FIFOQueueNaive, n_operations=50_000)
+    bench_naive = QueueBenchmark(FIFOQueueNaive, simple_enqueue, n_operations=50_000)
     bench_naive.run()
 
-    bench_opt = QueueBenchmark(FIFOQueueOptimized, n_operations=50_000)
+    bench_opt = QueueBenchmark(FIFOQueueOptimized, simple_enqueue, n_operations=50_000)
     bench_opt.run()
 
 
