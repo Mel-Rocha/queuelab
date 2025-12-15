@@ -13,7 +13,7 @@ from domain.exceptions import QueueEmptyError
 from instrumentation.logging_config import configure_logging
 
 
-def run_queue_demo(queue):
+def run_queue_demo(queue, enqueue_strategy):
     """
     Executa uma demonstração simples utilizando uma instância de fila.
 
@@ -23,32 +23,26 @@ def run_queue_demo(queue):
 
     :param queue: Instância de uma fila que implementa os métodos padrão
                   (enqueue, dequeue, peek, size, is_empty).
+    :param enqueue_strategy: Estratégia de enfileiramento.
+
     :return: None
     """
     configure_logging()
     logger = logging.getLogger(__name__)
 
-    logger.info("Iniciando demo genérica de Queue")
-    logger.info("Fila criada: %s", type(queue).__name__)
-
     logger.info("Enfileirando itens...")
-    queue.enqueue("A")
-    queue.enqueue("B")
-    queue.enqueue("C")
-
-    logger.info("Estado atual da fila: %s", queue)
-
-    logger.info("Desenfileirando um elemento...")
-    item = queue.dequeue()
-    logger.info("Item removido: %s", item)
+    enqueue_strategy(queue)
 
     logger.info("Espiando próximo elemento: %s", queue.peek())
-    logger.info("Tamanho atual da fila: %d", queue.size())
+    logger.info("Tamanho da fila: %d", queue.size())
 
-    logger.info("Testando remoção de fila vazia intencionalmente...")
+    logger.info("Desenfileirando itens...")
+    while not queue.is_empty():
+        item = queue.dequeue()
+        logger.info("Item removido: %s", item)
 
+    logger.info("Testando remoção em fila vazia...")
     try:
-        empty_queue = type(queue)()
-        empty_queue.dequeue()
+        queue.dequeue()
     except QueueEmptyError as e:
         logger.error("Erro esperado: %s", e)
